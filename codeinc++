@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+// A patient class to represent patients in the hospital
+class Patient {
+public:
+    string name;
+    int age;
+    string address;
+    string phone;
+    string email;
+    string gender;
+    string bloodGroup;
+    string disease;
+    string doctor;
+    string date;
+
+    Patient(string name, int age, string address, string phone, string email, string gender, string bloodGroup, string disease, string doctor, string date) {
+        this->name = name;
+        this->age = age;
+        this->address = address;
+        this->phone = phone;
+        this->email = email;
+        this->gender = gender;
+        this->bloodGroup = bloodGroup;
+        this->disease = disease;
+        this->doctor = doctor;
+        this->date = date;
+    }
+};
+
+// A hospital class to represent the hospital
+class Hospital {
+public:
+    vector<Patient> patients;
+
+    void addPatient(Patient p) {
+        patients.push_back(p);
+    }
+
+    void displayPatients() {
+        for (int i = 0; i < patients.size(); i++) {
+            Patient p = patients[i];
+            cout << "Patient Name: " << p.name << endl;
+            cout << "Age: " << p.age << endl;
+            cout << "Address: " << p.address << endl;
+            cout << "Phone: " << p.phone << endl;
+            cout << "Email: " << p.email << endl;
+            cout << "Gender: " << p.gender << endl;
+            cout << "Blood Group: " << p.bloodGroup << endl;
+            cout << "Disease: " << p.disease << endl;
+            cout << "Doctor: " << p.doctor << endl;
+            cout << "Date: " << p.date << endl << endl;
+        }
+    }
+};
+
+// Main function
+int main() {
+    Hospital hospital;
+
+    // Adding patients to the hospital
+    Patient p1("John", 30, "123 Main St.", "555-1234", "john@example.com", "Male", "O+", "Flu", "Dr. Smith", "01/01/2023");
+    hospital.addPatient(p1);
+
+    Patient p2("Sarah", 40, "456 Elm St.", "555-5678", "sarah@example.com", "Female", "B-", "Cancer", "Dr. Johnson", "02/02/2023");
+    hospital.addPatient(p2);
+
+    Patient p3("Mike", 50, "789 Oak St.", "555-9012", "mike@example.com", "Male", "AB+", "Heart Disease", "Dr. Lee", "03/03/2023");
+    hospital.addPatient(p3);
+
+    // Displaying all patients in the hospital
+    hospital.displayPatients();
+
+    return 0;
+}
